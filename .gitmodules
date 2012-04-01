@@ -1,0 +1,6 @@
+[submodule "library/Propel"]
+	path = library/Propel
+	url = https://github.com/propelorm/PropelBundle.git
+[submodule "tests/library/phpunit"]
+	path = tests/library/phpunit
+	url = https://github.com/sebastianbergmann/phpunit
