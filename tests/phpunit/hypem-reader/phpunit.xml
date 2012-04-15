@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit convertErrorsToExceptions="false"
+	convertNoticesToExceptions="false"
+	convertWarningsToExceptions="false"
+	stopOnFailure="false"
+	bootstrap="../../../application/configs/hypem-reader/bootstrap.php"
+	colors="true"
+	verbose="true"
+	debug="false"
+>
+
+	<php>
+		<ini name="display_errors" value="0" />
+		<ini name="display_startup_errors" value="0" />
+	</php>
+
+</phpunit>

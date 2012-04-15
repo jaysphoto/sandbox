@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database defaultIdMethod="native" name="hypem-reader">
+  <table name="feed_item">
+    <column name="id" type="INTEGER" primaryKey="true" required="true"/>
+    <column name="link" type="VARCHAR" size="256" required="true"/>
+    <column name="title" type="VARCHAR" size="128" required="true"/>
+    <column name="description" type="LONGVARCHAR"/>
+    <column name="guid" type="VARCHAR" size="128"/>
+    <column name="publish_date" type="TIMESTAMP" required="true"/>
+    <index name="guid_idx">
+      <index-column name="guid"/>
+    </index>
+    <index name="publish_date_idx">
+      <index-column name="publish_date"/>
+    </index>
+  </table>
+</database>
