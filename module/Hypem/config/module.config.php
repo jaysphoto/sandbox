@@ -26,7 +26,7 @@ return array(
                         'default' => array(
                             'type'    => 'Zend\Mvc\Router\Http\Segment',
                             'options' => array(
-                                'route'    => '/sandbox/[:controller[/:action]]',
+                                'route'    => '/sandbox/hypem[/:controller[/:action]]',
                                 'constraints' => array(
                                     'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
                                     'action'     => '[a-zA-Z][a-zA-Z0-9_-]*',
@@ -40,10 +40,30 @@ return array(
                         'home' => array(
                             'type' => 'Zend\Mvc\Router\Http\Literal',
                             'options' => array(
-                                'route'    => '/sandbox/',
+                                'route'    => '/sandbox',
                                 'defaults' => array(
                                     'controller' => 'Hypem\Controller\IndexController',
                                     'action'     => 'index',
+                                ),
+                            ),
+												),
+                        'hypem' => array(
+                            'type' => 'Zend\Mvc\Router\Http\Literal',
+                            'options' => array(
+                                'route'    => '/sandbox/hypem',
+                                'defaults' => array(
+                                    'controller' => 'Hypem\Controller\IndexController',
+                                    'action'     => 'index',
+                                ),
+                            ),
+                        ),
+                        'feed-read' => array(
+                            'type' => 'Zend\Mvc\Router\Http\Literal',
+                            'options' => array(
+                                'route'    => '/sandbox/hypem/feed/read',
+                                'defaults' => array(
+                                    'controller' => 'Hypem\Controller\FeedController',
+                                    'action'     => 'read',
                                 ),
                             ),
                         ),

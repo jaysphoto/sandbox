@@ -11,7 +11,7 @@ class Module implements AutoloaderProvider
     public function init(Manager $moduleManager)
     {
         $events = StaticEventManager::getInstance();
-        $events->attach('bootstrap', 'bootstrap', array($this, 'initializeView'), 100);
+        $events->attach('bootstrap', 'bootstrap', array($this, 'onBootstrap'));
     }
 
     public function getAutoloaderConfig()
@@ -33,12 +33,19 @@ class Module implements AutoloaderProvider
         return include __DIR__ . '/config/module.config.php';
     }
     
-    public function initializeView($e)
+    public function onBootstrap(\Zend\EventManager\Event $e)
     {
         $app          = $e->getParam('application');
+				/* @var $app \Zend\Mvc\Application */
+				
         $basePath     = $app->getRequest()->getBasePath() . '/sandbox/';
-        $locator      = $app->getLocator();
+
+				$locator      = $app->getLocator();
         $renderer     = $locator->get('Zend\View\Renderer\PhpRenderer');
         $renderer->plugin('basePath')->setBasePath($basePath);
+				
+				//$view         = $locator->get('Zend\View\View');
+        //$jsonStrategy = $locator->get('Zend\View\Strategy\JsonStrategy');
+        //$view->events()->attach($jsonStrategy, 100);  
     }
 }
